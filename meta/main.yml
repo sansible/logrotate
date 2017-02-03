@@ -1,0 +1,18 @@
+---
+
+allow_duplicates: yes
+dependencies: [ ]
+
+galaxy_info:
+  author:
+    - David Reed
+  description: Install and configure Logrotate
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+  categories:
+    - development

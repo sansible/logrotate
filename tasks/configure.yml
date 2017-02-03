@@ -1,0 +1,17 @@
+---
+
+- name: Configure builtin Logrotate configs
+  become: yes
+  template:
+    dest: "/etc/logrotate.d/{{ item.key }}"
+    src: "{{ item.key }}.logrotate.d.j2"
+  when: item.value.enabled
+  with_dict: "{{ logrotate.builtin_configs }}"
+
+- name: Configure custom Logrotate configs
+  become: yes
+  template:
+    dest: "/etc/logrotate.d/{{ item.name }}"
+    src: custom_configs.logrotate.d.j2
+  with_items: "{{ logrotate.custom_configs }}"
+  when: logrotate.custom_configs is defined

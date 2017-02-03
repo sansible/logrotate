@@ -1,0 +1,19 @@
+##
+# {{ ansible_managed }}
+#
+#jinja2:trim_blocks: False
+
+{% for path in item.value.paths %}
+"{{ path }}"
+{% endfor %} {
+	daily
+	missingok
+	compress
+	delaycompress
+	copytruncate
+	rotate 7
+	sharedscripts
+	postrotate
+		service rsyslog restart
+	endscript
+}
