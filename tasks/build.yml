@@ -1,0 +1,7 @@
+---
+
+- name: Install logrotate
+  become: yes
+  package:
+    name: "{{ 'logrotate=' + logrotate.version if logrotate.version else 'logrotate' }}"
+    state: "{{ 'latest' if not logrotate.version else 'present' }}"
