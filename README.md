@@ -11,8 +11,8 @@ Develop: [![Build Status](https://travis-ci.org/sansible/logrotate.svg?branch=de
 
 Configures logrotate scripts for log files. Comes with some builtin configs and allows for custom configs.
 
-Please [Makefile] for test commands if you wish to contribute to this role. If you want to test 
-locally using Ubuntu Xenial, create .make file (if it's not already created) and add the line 
+Please [Makefile] for test commands if you wish to contribute to this role. If you want to test
+locally using Ubuntu Xenial, create .make file (if it's not already created) and add the line
 VAGRANT_BOX=ubuntu/xenial64.
 
 
@@ -73,9 +73,9 @@ This role uses two tags: **build** and **configure**
 
 ```BASH
 # Dry run
-logrotate -d -f /etc/logrotate.conf
+logrotate -d /etc/logrotate.conf
 # Actual run
-logrotate -f /etc/logrotate.conf
+logrotate -d -f /etc/logrotate.conf
 ```
 
 Install with builtin application log config and custom config:
