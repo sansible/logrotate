@@ -12,6 +12,6 @@
   become: yes
   template:
     dest: "/etc/logrotate.d/{{ item.name }}"
-    src: custom_configs.logrotate.d.j2
+    src: custom_logs.logrotate.d.j2
   with_items: "{{ logrotate.custom_configs }}"
   when: logrotate.custom_configs is defined
