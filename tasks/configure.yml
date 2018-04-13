@@ -1,17 +1,15 @@
 ---
 
-- name: Configure builtin Logrotate configs
+- name: Configure Builtin Logrotate Configs
   become: yes
   template:
-    dest: "/etc/logrotate.d/{{ item.key }}"
-    src: "{{ item.key }}.logrotate.d.j2"
-  when: item.value.enabled
-  with_dict: "{{ logrotate.builtin_configs }}"
+    dest: "/etc/logrotate.d/{{ item | regex_replace('^/', '') | regex_replace('/', '_') }}"
+    src: application_logs.logrotate.d.j2
+  with_items: "{{ sansible_logrotate_application_logs_paths }}"
 
-- name: Configure custom Logrotate configs
+- name: Configure Custom Logrotate Configs
   become: yes
   template:
     dest: "/etc/logrotate.d/{{ item.name }}"
     src: custom_logs.logrotate.d.j2
-  with_items: "{{ logrotate.custom_configs }}"
-  when: logrotate.custom_configs is defined
+  with_items: "{{ sansible_logrotate_custom_configs }}"

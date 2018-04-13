@@ -1,25 +1,18 @@
 ---
 
-logrotate:
-  version: ~
-
-  builtin_configs:
-    # Built in generic config application logs
-    application_logs:
-      enabled: false
-      paths: []
-
-  # Custom configs
-  custom_configs: []
-    # configure as many of these as needed
-    #- name: custom_log
-    #  path: "/var/log/cutom/*.log"
-    #  options:
-    #    - weekly
-    #    - size 25M
-    #    - missingok
-    #    - compress
-    #    - delaycompress
-    #    - copytruncate
-    #      scripts:
-    #        postrotate: "service rsyslog restart"
+sansible_logrotate_application_logs_paths: []
+#   - /bin/command_one
+#   - /usr/bin/command_two
+sansible_logrotate_custom_configs: []
+#  - name: custom_log
+#    path: "/var/log/cutom/*.log"
+#    options:
+#      - weekly
+#      - size 25M
+#      - missingok
+#      - compress
+#      - delaycompress
+#      - copytruncate
+#        scripts:
+#          postrotate: "service rsyslog restart"
+sansible_logrotate_version: ~
