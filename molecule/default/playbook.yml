@@ -1,0 +1,30 @@
+---
+
+- name: Converge
+  hosts: all
+
+  pre_tasks:
+    - name: Update APT Cache
+      become: yes
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+  roles:
+    - role: logrotate
+      sansible_logrotate_application_logs_paths:
+        - /bin/test_one
+        - /usr/bin/test_two
+      sansible_logrotate_custom_configs:
+        - name: test_three
+          path: /var/log/test_three/*.log
+          options:
+            - daily
+            - missingok
+            - rotate 7
+            - compress
+            - delaycompress
+            - notifempty
+            - sharedscripts
+          scripts:
+            postrotate: service rsyslog restart
