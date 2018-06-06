@@ -1,11 +1,11 @@
 ---
 
-- name: Configure Builtin Logrotate Configs
+- name: Configure Application Logs Logrotate Config
   become: yes
   template:
-    dest: "/etc/logrotate.d/{{ item | regex_replace('^/', '') | regex_replace('/', '_') }}"
+    dest: /etc/logrotate.d/application_logs
     src: application_logs.logrotate.d.j2
-  with_items: "{{ sansible_logrotate_application_logs_paths }}"
+  when: sansible_logrotate_application_logs_paths != []
 
 - name: Configure Custom Logrotate Configs
   become: yes

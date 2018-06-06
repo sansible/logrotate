@@ -1,10 +1,10 @@
 ##
 # {{ ansible_managed }}
 #
-#jinja2:trim_blocks: False
 
-{{ item }}
-{
+{% for path in sansible_logrotate_application_logs_paths %}
+"{{ path }}"
+{% endfor %} {
 	daily
 	missingok
 	compress

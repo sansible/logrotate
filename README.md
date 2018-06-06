@@ -19,7 +19,7 @@ this to your `roles.yml`.
 
 ```YAML
 - src: sansible.logrotate
-  version: v2.0
+  version: v2.1
 ```
 
 and run `ansible-galaxy install -p ./roles -r roles.yml`
@@ -37,9 +37,9 @@ This role uses two tags: **build** and **configure**
 
 |Variable|Default|Description|
 |---|---|---|
-|sansible_logrotate_version|~|Version number Logrotate package|
-|sansible_logrotate_application_logs_paths|[]|Out of the box configs for certain log types|
+|sansible_logrotate_application_logs_paths|[]|Out of the box config for generic application logs|
 |sansible_logrotate_custom_configs|[]|Specify a path and a list of options to go into the config file|
+|sansible_logrotate_version|~|Version number Logrotate package|
 
 
 ## Examples
