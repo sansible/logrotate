@@ -10,11 +10,11 @@ def test_packages(host):
 
 
 def test_files(host):
-    for config in ['bin_test_one', 'usr_bin_test_two', 'test_three']:
+    for config in ['application_logs', 'test_three']:
         assert host.file('/etc/logrotate.d/%s' % config).is_file
 
 
 def test_configs(host):
-    for config in ['bin_test_one', 'usr_bin_test_two', 'test_three']:
+    for config in ['application_logs', 'test_three']:
         cmd = host.run('logrotate -d /etc/logrotate.d/%s' % config)
         assert 'error:' not in cmd.stderr
