@@ -4,14 +4,15 @@ allow_duplicates: yes
 dependencies: []
 
 galaxy_info:
+  author: sansilbe
   description: Install and configure Logrotate
   license: MIT
-  min_ansible_version: 2.2
+  min_ansible_version: 2.7
   platforms:
     - name: Ubuntu
       versions:
         - trusty
         - xenial
         - bionic
-  categories:
+  galaxy_tags:
     - development
