@@ -1,2 +1,4 @@
-docker-py
-molecule==2.22.0
+docker==3.5.1
+flake8==3.7.9
+molecule==2.22
+yamllint==1.21.0
