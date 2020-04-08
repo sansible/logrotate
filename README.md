@@ -38,6 +38,7 @@ This role uses two tags: **build** and **configure**
 |Variable|Default|Description|
 |---|---|---|
 |sansible_logrotate_application_logs_paths|[]|Out of the box config for generic application logs|
+|sansible_logrotate_application_logs_rotate_days|7|Number of days to retain logs|
 |sansible_logrotate_custom_configs|[]|Specify a path and a list of options to go into the config file|
 |sansible_logrotate_version|~|Version number Logrotate package|
 

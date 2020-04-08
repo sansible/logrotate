@@ -10,7 +10,7 @@
 	compress
 	delaycompress
 	copytruncate
-	rotate 7
+	rotate {{ sansible_logrotate_application_logs_rotate_days }}
 	sharedscripts
 	postrotate
 		service rsyslog restart
