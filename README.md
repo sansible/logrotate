@@ -19,7 +19,7 @@ this to your `roles.yml`.
 
 ```YAML
 - src: sansible.logrotate
-  version: v2.1
+  version: v4.0.1
 ```
 
 and run `ansible-galaxy install -p ./roles -r roles.yml`
@@ -37,11 +37,13 @@ This role uses two tags: **build** and **configure**
 
 |Variable|Default|Description|
 |---|---|---|
+|sansible_logrotate_application_logs_delay_compress|yes|Whether to delay compression of rotated application logs [1]|
 |sansible_logrotate_application_logs_paths|[]|Out of the box config for generic application logs|
 |sansible_logrotate_application_logs_rotate_days|7|Number of days to retain logs|
 |sansible_logrotate_custom_configs|[]|Specify a path and a list of options to go into the config file|
 |sansible_logrotate_version|~|Version number Logrotate package|
 
+[1] https://linux.die.net/man/8/logrotate
 
 ## Examples
 
@@ -62,6 +64,7 @@ Install with builtin application log config and custom config:
 
   roles:
     role: logrotate
+    sansible_logrotate_application_logs_delay_compress: yes
     sansible_logrotate_application_logs_paths:
       - /application/logs/*.log
       - /another_application/logs/*.log

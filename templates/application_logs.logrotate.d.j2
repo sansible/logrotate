@@ -1,3 +1,4 @@
+#jinja2:trim_blocks: True
 ##
 # {{ ansible_managed }}
 #
@@ -8,7 +9,9 @@
 	daily
 	missingok
 	compress
+	{% if sansible_logrotate_application_logs_delay_compress -%}
 	delaycompress
+	{% endif -%}
 	copytruncate
 	rotate {{ sansible_logrotate_application_logs_rotate_days }}
 	sharedscripts
