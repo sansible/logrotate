@@ -1,4 +1,5 @@
 docker==3.5.1
 flake8==3.7.9
 molecule==2.22
+sh>=1.12.14,<1.13
 yamllint==1.21.0
