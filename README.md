@@ -19,7 +19,7 @@ this to your `roles.yml`.
 
 ```YAML
 - src: sansible.logrotate
-  version: v4.0.1
+  version: v4.1.0-latest
 ```
 
 and run `ansible-galaxy install -p ./roles -r roles.yml`
