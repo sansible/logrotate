@@ -2,6 +2,7 @@
 
 group: stable
 dist: bionic
+
 sudo: required
 
 language: python
@@ -15,8 +16,8 @@ branches:
     - master
 
 env:
-  - ANSIBLE_INSTALL_VERSION=2.8.12
-  - ANSIBLE_INSTALL_VERSION=2.9.9
+  - ANSIBLE_INSTALL_VERSION=2.8.18
+  - ANSIBLE_INSTALL_VERSION=2.9.16
 
 services:
   - docker
