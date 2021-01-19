@@ -1,10 +1,12 @@
 ---
 
 sansible_logrotate_application_logs_delay_compress: yes
+sansible_logrotate_application_logs_delete_rotated_logs: no
 sansible_logrotate_application_logs_paths: []
 #   - /bin/command_one
 #   - /usr/bin/command_two
 sansible_logrotate_application_logs_rotate_days: 7
+sansible_logrotate_application_logs_rotate_size: ~
 sansible_logrotate_custom_configs: []
 #  - name: custom_log
 #    path: "/var/log/custom/*.log"

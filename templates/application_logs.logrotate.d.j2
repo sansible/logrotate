@@ -1,4 +1,4 @@
-#jinja2:trim_blocks: True
+#jinja2: lstrip_blocks: True, trim_blocks: True
 ##
 # {{ ansible_managed }}
 #
@@ -6,16 +6,24 @@
 {% for path in sansible_logrotate_application_logs_paths %}
 "{{ path }}"
 {% endfor %} {
-	daily
-	missingok
-	compress
-	{% if sansible_logrotate_application_logs_delay_compress -%}
-	delaycompress
-	{% endif -%}
-	copytruncate
-	rotate {{ sansible_logrotate_application_logs_rotate_days }}
-	sharedscripts
-	postrotate
-		service rsyslog restart
-	endscript
+    daily
+    missingok
+    compress
+    {% if sansible_logrotate_application_logs_delay_compress %}
+    delaycompress
+    {% endif %}
+    copytruncate
+    rotate {{ sansible_logrotate_application_logs_rotate_days }}
+    sharedscripts
+    {% if sansible_logrotate_application_logs_rotate_size %}
+    size {{ sansible_logrotate_application_logs_rotate_size }}
+    {% endif %}
+    postrotate
+        service rsyslog restart
+    {% if sansible_logrotate_application_logs_delete_rotated_logs %}
+        {% for path in sansible_logrotate_application_logs_paths %}
+        rm -rf "{{ path }}.*"
+        {% endfor %}
+    {% endif %}
+    endscript
 }

@@ -12,9 +12,11 @@
 
   roles:
     - role: logrotate
+      sansible_logrotate_application_logs_delete_rotated_logs: yes
+      sansible_logrotate_application_logs_rotate_size: 100K
       sansible_logrotate_application_logs_paths:
-        - /bin/test_one
-        - /usr/bin/test_two
+        - /var/log/test_one.log
+        - /var/log/test_two.log
       sansible_logrotate_custom_configs:
         - name: test_three
           path: /var/log/test_three/*.log
