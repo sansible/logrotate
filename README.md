@@ -38,12 +38,15 @@ This role uses two tags: **build** and **configure**
 |Variable|Default|Description|
 |---|---|---|
 |sansible_logrotate_application_logs_delay_compress|yes|Whether to delay compression of rotated application logs [1]|
+|sansible_logrotate_application_logs_delete_rotated_logs|no|Whether to delete rotated application logs via postrotate [2]|
 |sansible_logrotate_application_logs_paths|[]|Out of the box config for generic application logs|
-|sansible_logrotate_application_logs_rotate_days|7|Number of days to retain logs|
+|sansible_logrotate_application_logs_rotate_days|7|Number of days to retain application logs|
+|sansible_logrotate_application_logs_rotate_size|~|Size constraint for rotating application logs|
 |sansible_logrotate_custom_configs|[]|Specify a path and a list of options to go into the config file|
 |sansible_logrotate_version|~|Version number Logrotate package|
 
 [1] https://linux.die.net/man/8/logrotate
+[2] Forcible deletes log files as rotate 0 seems to leave a single rotated log behind
 
 ## Examples
 
