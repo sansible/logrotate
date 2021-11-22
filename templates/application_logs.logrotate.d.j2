@@ -6,7 +6,11 @@
 {% for path in sansible_logrotate_application_logs_paths %}
 "{{ path }}"
 {% endfor %} {
+    {% if sansible_logrotate_application_logs_frequency %}
+    {{ sansible_logrotate_application_logs_frequency }}
+    {% else %}
     daily
+    {% endif %}
     missingok
     compress
     {% if sansible_logrotate_application_logs_delay_compress %}

@@ -39,6 +39,7 @@ This role uses two tags: **build** and **configure**
 |---|---|---|
 |sansible_logrotate_application_logs_delay_compress|yes|Whether to delay compression of rotated application logs [1]|
 |sansible_logrotate_application_logs_delete_rotated_logs|no|Whether to delete rotated application logs via postrotate [2]|
+|sansible_logrotate_application_logs_frequency|daily|Frequency of logrotate executions [1]|
 |sansible_logrotate_application_logs_paths|[]|Out of the box config for generic application logs|
 |sansible_logrotate_application_logs_rotate_days|7|Number of days to retain application logs|
 |sansible_logrotate_application_logs_rotate_size|~|Size constraint for rotating application logs|
