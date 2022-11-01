@@ -2,5 +2,5 @@
 
 - name: Install logrotate
   become: yes
-  package:
+  ansible.builtin.package:
     name: "{{ 'logrotate=' + sansible_logrotate_version if sansible_logrotate_version is not none else 'logrotate' }}"
