@@ -2,14 +2,16 @@
 
 - name: Configure Application Logs Logrotate Config
   become: yes
-  template:
+  ansible.builtin.template:
     dest: /etc/logrotate.d/application_logs
     src: application_logs.logrotate.d.j2
+    mode: 0644
   when: sansible_logrotate_application_logs_paths != []
 
 - name: Configure Custom Logrotate Configs
   become: yes
-  template:
+  ansible.builtin.template:
     dest: "/etc/logrotate.d/{{ item.name }}"
     src: custom_logs.logrotate.d.j2
+    mode: 0644
   with_items: "{{ sansible_logrotate_custom_configs }}"

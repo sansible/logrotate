@@ -1,11 +1,11 @@
 ---
 
 - name: Install logrotate
-  include: build.yml
+  ansible.builtin.import_tasks: build.yml
   tags:
     - build
 
 - name: Configure logrotate
-  include: configure.yml
+  ansible.builtin.import_tasks: configure.yml
   tags:
     - configure
